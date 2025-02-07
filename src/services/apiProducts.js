@@ -1,6 +1,7 @@
+const apiUrl = import.meta.env.VITE_API_URL;
 export async function getApiProducts() {
   try {
-    const res = await fetch(`https://fakestoreapi.com/products`);
+    const res = await fetch(apiUrl);
     if (!res.ok) throw new Error("failed fetch data");
     const data = await res.json();
     // console.log(data);
@@ -13,7 +14,7 @@ export async function getApiProducts() {
 export async function createProduct(product) {
   console.log(product);
   try {
-    const res = await fetch("https://fakestoreapi.com/products", {
+    const res = await fetch(apiUrl, {
       method: "POST",
       body: JSON.stringify({
         title: product.title,
@@ -34,7 +35,7 @@ export async function createProduct(product) {
 
 export async function getCategories() {
   try {
-    const res = await fetch(`https://fakestoreapi.com/products/categories`);
+    const res = await fetch(`${apiUrl}/categories`);
     if (!res.ok) throw new Error("failed get categories");
     const data = await res.json();
     return data;
@@ -45,7 +46,7 @@ export async function getCategories() {
 
 export async function getItem(id) {
   try {
-    const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+    const res = await fetch(`${apiUrl}/${id}`);
     if (!res.ok) throw new Error("failed get item with this id");
     const item = await res.json();
     // console.log(item);
