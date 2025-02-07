@@ -1,0 +1,38 @@
+@import "tailwindcss";
+.loading {
+  /* font-size: 50px; */
+  animation: loadingMove 0.99s linear infinite;
+  /* transform: rotateX(50deg); */
+}
+.message {
+  opacity: 0;
+  top: -40%;
+  animation: msgMove 1.5s linear 2 alternate;
+}
+
+@keyframes msgMove {
+  0% {
+    top: -40%;
+  }
+  60% {
+    top: -10%;
+    opacity: 1;
+  }
+  90% {
+    top: -3%;
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    top: 5%;
+  }
+}
+
+@keyframes loadingMove {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
